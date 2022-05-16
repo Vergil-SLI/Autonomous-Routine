@@ -11,6 +11,8 @@ class Robot(TimedRobot):
     def __init__(self):
         super().__init__()
         self.drivetrain = Drivetrain()
+        self.stage = 1
+            
 
     def robotInit(self):
         pass
@@ -29,10 +31,11 @@ class Robot(TimedRobot):
 
     def autonomousInit(self):
         pass
-
+    
     def autonomousPeriodic(self):
-        pass
-
+        self.stage = self.drivetrain.auto_routine(self.stage)
+        # print(self.stage)
+        
 
 if __name__ == "__main__":
     run(Robot)
